@@ -3,8 +3,8 @@ Widget to toggle flight mode.
 This simple widget toggles flight mode of your device.  Just put the widget on
 your home screen and touch it to turn on (or turn off) flight mode.
 
-![Example screen](img/screencap_off_small.png) 
-![Example screen](img/screencap_on_small.png)
+![Example screen](images/screencap_off_small.png) 
+![Example screen](images/screencap_on_small.png)
 
 Note: this widget will not work on Android 4.2 and above. 
 
