@@ -1,0 +1,11 @@
+# Using proguard only to remove log messages; not obfuscating:
+-dontobfuscate
+
+# Workaround for a bug when using dontobfuscate (http://stackoverflow.com/a/13877518):
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable
+
+# Remove VERBOSE and DEBUG log lines:
+-assumenosideeffects class **.PLog {
+    public static *** v(...);
+    public static *** d(...);
+}

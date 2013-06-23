@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+    </style>
+ 
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- added this to adress overdraw -->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+</resources>

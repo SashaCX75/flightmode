@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+<!-- http://tools.android.com/tips/lint/suppressing-lint-warnings -->
+<!-- SDK version 17 and above not supported; see AndroidManifest.xml -->
+    <issue id="OldTargetApi" severity="ignore" />
+</lint>

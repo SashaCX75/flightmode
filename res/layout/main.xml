@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btn_flightmode"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+	  > 
+    
+   	<ImageView
+      	android:id="@+id/img_flightmode"
+        android:contentDescription="@string/descr_img_flightmode"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:scaleType="center"
+   	/>
+    
+
+ </LinearLayout>
