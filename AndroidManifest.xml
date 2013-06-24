@@ -3,8 +3,8 @@
 <manifest 
       xmlns:android="http://schemas.android.com/apk/res/android"
       package="org.aja.flightmode"
-      android:versionCode="2"
-      android:versionName="1.1">
+      android:versionCode="3"
+      android:versionName="1.2">
       
 <!-- 
 Only supporting up until version 16, because on 17 and above the app will need
