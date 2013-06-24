@@ -10,7 +10,7 @@
     <copy
       overwrite="true"
       file="${out.final.file}"
-      tofile="${out.absolute.dir}/${ant.project.name}-${build.target}_${dist.version.name}.apk" />
+      tofile="${out.absolute.dir}/${ant.project.name}-${build.target}-${dist.version.name}.apk" />
   </target>
 
 </project>
