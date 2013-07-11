@@ -11,19 +11,19 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 public class FlightmodeAppWidgetProvider extends AppWidgetProvider {
+  static final String TAG = "org.aja.flightmode";
+  static void d(String logstring) { PLog.d(TAG, logstring); };
 
-  static final String        LOGTAG = "org.aja.flightmode";
-  static final String        TOGGLE_REQUEST = "org.aja.flightmode.ACTION_TOGGLE_REQUEST";
-  static final ComponentName NAME_OF_THIS_COMPONENT = new ComponentName( 
-      "org.aja.flightmode",
-      "org.aja.flightmode.FlightmodeAppWidgetProvider");
+  static final String TOGGLE_REQUEST = "org.aja.flightmode.ACTION_TOGGLE_REQUEST";
+
 
   /**
    * Receives and processes a button pressed intent or state change.
    */
   @Override
     public void onReceive(Context cntxt, Intent ntnt) {
-      PLog.d(LOGTAG, "onReceive()  (ntnt action is: " + ntnt.getAction() + ")");
+      d("onReceive(cntxt, ntnt)  (ntnt action is " + ntnt.getAction() + ")");
+
       super.onReceive(cntxt, ntnt);
       if (ntnt.getAction().equals(TOGGLE_REQUEST)) {
         toggleFlightmode(cntxt);
@@ -31,7 +31,9 @@ public class FlightmodeAppWidgetProvider extends AppWidgetProvider {
       else if (ntnt.getAction().equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
         updateWidgets(cntxt); 
       }
+
     }
+
 
   /**
    * Toggles flighmode by changing the corresponding system setting.
@@ -39,7 +41,7 @@ public class FlightmodeAppWidgetProvider extends AppWidgetProvider {
    *  to trigger our onReceive().)
    */
   private void toggleFlightmode(Context cntxt) {
-    PLog.d(LOGTAG, "toggleFlightmode()");
+    d("toggleFlightmode(cntxt)");
 
     // toggle the system setting
     int oldvalue = Settings.System.getInt( cntxt.getContentResolver(),
@@ -56,22 +58,24 @@ public class FlightmodeAppWidgetProvider extends AppWidgetProvider {
 
   }
 
+
   /**
    * Initialize the widgets. 
    * Called only when instantiating a new widget, as updateMillis="0".
    */
   @Override
     public void onUpdate(Context cntxt, AppWidgetManager a_mgr, int[] ids) {
-      PLog.d(LOGTAG,"onUpdate()");
+      d("onUpdate(cntxt, a_mgr, ids)");
       super.onUpdate(cntxt, a_mgr, ids);
       updateWidgets(cntxt);
     }
+
 
   /**
    * Update all widgets belonging to this provider.
    */
   public static void updateWidgets(Context cntxt) {
-    PLog.d(LOGTAG, "updateWidgets()");
+    d("updateWidgets(cntxt)");
 
     // get the RemoteViews object containing the view objects in the widget layout
     RemoteViews rviews = new RemoteViews(cntxt.getPackageName(), R.layout.main);
@@ -92,7 +96,10 @@ public class FlightmodeAppWidgetProvider extends AppWidgetProvider {
 
     // Use rviews to be the RemoteViews object in all AppWidget instances for this provider
     final AppWidgetManager a_mgr = AppWidgetManager.getInstance(cntxt);
-    a_mgr.updateAppWidget(NAME_OF_THIS_COMPONENT, rviews);
+    final ComponentName cname = new ComponentName( 
+        "org.aja.flightmode",
+        "org.aja.flightmode.FlightmodeAppWidgetProvider");
+    a_mgr.updateAppWidget(cname, rviews);
 
   }
 
