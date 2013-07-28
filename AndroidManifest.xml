@@ -7,18 +7,16 @@
       android:versionName="1.2">
       
 <!-- 
-Only supporting up until version 16, because on 17 and above the app will need
-to be installed as a system app. Non-root users will not have that option.
-
-On 17 and above this app will need WRITE_SECURE_SETTINGS permission in order to
-be able to change the flight mode setting.  
+Only supporting up until version 16, because on 17 and above the app
+will need to be installed as a system app. Non-root users will not
+have that option.
 -->
-
 <uses-sdk 
       android:minSdkVersion="4" 
       android:targetSdkVersion="16"
       android:maxSdkVersion="16" />
 
+<!-- Needed to change Settings.System.AIRPLANE_MODE_ON -->
 <uses-permission 
       android:name="android.permission.WRITE_SETTINGS" />
     
